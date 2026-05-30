@@ -13,21 +13,19 @@ export default function Home() {
       <section className="relative overflow-hidden bg-[#F8FAFC]">
         <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(11,42,111,0.10),rgba(230,122,0,0.05),transparent)]" />
         <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <SearchBar />
-          </div>
-          <div className="grid min-h-[calc(100vh-210px)] content-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+          
+          <div className="grid min-h-[calc(100vh-210px)] items-center gap-12 lg:grid-cols-[1fr_1fr]">
             <div className="flex flex-col justify-center">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#E67A00]">Mumbai and Navi Mumbai</p>
             <h1 className="mt-4 max-w-4xl text-5xl font-semibold tracking-tight text-[#0B2A6F] sm:text-6xl lg:text-7xl">Find Your Next Home With Confidence</h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">Browse verified rental and sale properties before scheduling a visit.</p>
             <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mb-10">
+            <SearchBar />
+          </div>
               <Link href="/properties/sale" className={buttonVariants({ size: "lg" })}>Browse Properties <ArrowRight className="h-4 w-4" /></Link>
               <a href={`https://wa.me/${business.whatsapp}`} target="_blank" rel="noreferrer" className={buttonVariants({ variant: "accent", size: "lg" })}><MessageCircle className="h-4 w-4" />WhatsApp Us</a>
             </div>
-            </div>
-            <div className="grid content-end gap-4 sm:grid-cols-2 lg:grid-cols-1">
-              {properties.slice(0, 2).map((property) => <PropertyCard key={property.id} property={property} />)}
             </div>
           </div>
         </div>

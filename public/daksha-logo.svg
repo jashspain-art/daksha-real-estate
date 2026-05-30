@@ -1,0 +1,10 @@
+<svg width="320" height="96" viewBox="0 0 320 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="96" height="96" rx="16" fill="#0B2A6F"/>
+  <path d="M25 65V31h19c15 0 27 7 27 17s-12 17-27 17H25Zm14-12h6c7 0 12-2 12-5s-5-5-12-5h-6v10Z" fill="#fff"/>
+  <path d="M24 70h48v6H24v-6Z" fill="#E67A00"/>
+  <path d="M112 33h30c17 0 29 11 29 26s-12 26-29 26h-30V33Zm28 39c9 0 15-5 15-13s-6-13-15-13h-12v26h12Z" fill="#0B2A6F"/>
+  <path d="M178 85V33h16v52h-16Zm33 0-17-21 17-31h18l-19 31 20 21h-19Z" fill="#0B2A6F"/>
+  <path d="M237 85V33h38v12h-22v8h19v12h-19v20h-16Z" fill="#0B2A6F"/>
+  <path d="M112 19h166v6H112v-6Z" fill="#E67A00"/>
+  <text x="112" y="94" fill="#6B7280" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="2">REAL ESTATE</text>
+</svg>

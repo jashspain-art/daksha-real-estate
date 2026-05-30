@@ -1,0 +1,131 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum ListingType {
+  SALE
+  RENT
+}
+
+enum PropertyStatus {
+  AVAILABLE
+  SOLD
+  RENTED
+  RESERVED
+}
+
+enum LeadType {
+  GENERAL
+  PROPERTY_UNLOCK
+  SCHEDULE_VISIT
+}
+
+model Property {
+  id             String         @id @default(cuid())
+  publicId       String         @unique
+  title          String
+  slug           String         @unique
+  listingType    ListingType
+  propertyType   String
+  price          Int
+  bedrooms       Int
+  bathrooms      Int
+  carpetArea     Int
+  furnished      String
+  readyToMove    Boolean        @default(false)
+  availability   String
+  status         PropertyStatus @default(AVAILABLE)
+  overview       String
+  exactAddress   String?
+  mapQuery       String?
+  featured       Boolean        @default(false)
+  locationId     String
+  location       Location       @relation(fields: [locationId], references: [id])
+  media          PropertyMedia[]
+  amenities      PropertyAmenity[]
+  leads          Lead[]
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+}
+
+model PropertyMedia {
+  id         String   @id @default(cuid())
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  type       String
+  url        String
+  alt        String?
+  locked     Boolean  @default(false)
+  sortOrder  Int      @default(0)
+  createdAt  DateTime @default(now())
+}
+
+model PropertyAmenity {
+  id         String   @id @default(cuid())
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  name       String
+}
+
+model Location {
+  id         String     @id @default(cuid())
+  name       String
+  slug       String     @unique
+  region     String
+  summary    String?
+  seoTitle   String?
+  seoDescription String?
+  properties Property[]
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+}
+
+model Lead {
+  id            String    @id @default(cuid())
+  type          LeadType
+  name          String
+  phone         String
+  email         String
+  budget        String?
+  message       String?
+  preferredDate DateTime?
+  propertyId    String?
+  property      Property? @relation(fields: [propertyId], references: [publicId])
+  createdAt     DateTime  @default(now())
+}
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  name      String
+  quote     String
+  active    Boolean  @default(true)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model Faq {
+  id        String   @id @default(cuid())
+  question  String
+  answer    String
+  active    Boolean  @default(true)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model ConsultantProfile {
+  id          String   @id @default(cuid())
+  name        String
+  bio         String
+  experience  String
+  areasServed String
+  imageUrl    String?
+  whatsapp    String
+  phone       String
+  updatedAt   DateTime @updatedAt
+}

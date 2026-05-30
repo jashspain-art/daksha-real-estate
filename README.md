@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Daksha Real Estate
 
-## Getting Started
+Premium real estate website and admin dashboard for Mumbai and Navi Mumbai properties.
 
-First, run the development server:
+## Stack
+
+Next.js 15 App Router, TypeScript, Tailwind CSS, shadcn-style UI primitives, Supabase, PostgreSQL, Prisma ORM, NextAuth, React Hook Form, Zod, and Vercel.
+
+## Features
+
+- Public pages: Home, sale listings, rent listings, property details, SEO location pages, About, Contact, Schedule A Visit, Privacy Policy, Terms.
+- Property details with photos, price, overview, amenities, Google Maps, similar properties, WhatsApp inquiry with property ID, and serious-buyer locked content.
+- Lead forms for general inquiry, property unlock, and schedule visit.
+- Admin dashboard sections for properties, media, leads, locations, homepage content, testimonials, FAQ, and consultant profile.
+- Translation-ready architecture through central content/data modules and route-level metadata.
+- Prisma schema, SQL migration, seed data, Vercel config, and Supabase configuration notes.
+
+## Local Setup
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Copy environment variables:
+
+```bash
+cp .env.example .env
+```
+
+3. Add Supabase database URLs, Supabase keys, NextAuth secret, and admin credentials.
+
+4. Generate Prisma client:
+
+```bash
+npm run db:generate
+```
+
+5. Apply migrations and seed:
+
+```bash
+npm run db:migrate
+npm run db:seed
+```
+
+6. Start development:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment Guide
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Connect this GitHub repository to Vercel.
+2. Add all variables from `.env.example` in Vercel Project Settings.
+3. Connect Supabase Postgres using the pooled `DATABASE_URL` and direct `DIRECT_URL`.
+4. Deploy. Vercel uses `prisma generate && next build` from `vercel.json`.
+5. Run migrations against Supabase from local or CI:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run db:migrate
+npm run db:seed
+```
 
-## Learn More
+## Supabase Configuration
 
-To learn more about Next.js, take a look at the following resources:
+- Use Supabase Postgres for Prisma.
+- Use Supabase Storage buckets for property images, videos, brochures, floor plans, and consultant profile image.
+- Keep `SUPABASE_SERVICE_ROLE_KEY` server-only in Vercel.
+- Forms write leads through `/api/leads`; admin export reads through Prisma.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Admin
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Set:
 
-## Deploy on Vercel
+- `ADMIN_EMAIL`
+- `ADMIN_PASSWORD`
+- `NEXTAUTH_SECRET`
+- `NEXTAUTH_URL`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Then open `/admin`.

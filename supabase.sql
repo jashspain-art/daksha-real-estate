@@ -1,0 +1,13 @@
+-- Daksha Real Estate uses Supabase Postgres through Prisma.
+-- Apply the canonical table definitions with:
+-- npm run db:migrate
+--
+-- The SQL executed by that command is versioned at:
+-- prisma/migrations/0001_init/migration.sql
+--
+-- Supabase Storage buckets to create manually:
+-- property-images
+-- property-videos
+-- property-brochures
+-- property-floor-plans
+-- consultant-profile

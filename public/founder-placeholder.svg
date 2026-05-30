@@ -1,0 +1,8 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1100" fill="#0B2A6F"/>
+  <circle cx="450" cy="330" r="150" fill="#E67A00"/>
+  <path d="M170 1000c30-240 180-370 280-370s250 130 280 370H170Z" fill="#F8FAFC"/>
+  <path d="M250 1000c34-158 112-242 200-242s166 84 200 242H250Z" fill="#1A1A1A" opacity=".18"/>
+  <text x="450" y="550" text-anchor="middle" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="700">Naveen B. Thakkar</text>
+  <text x="450" y="610" text-anchor="middle" fill="#fff" opacity=".75" font-family="Arial, Helvetica, sans-serif" font-size="30">Founder, Daksha Real Estate</text>
+</svg>

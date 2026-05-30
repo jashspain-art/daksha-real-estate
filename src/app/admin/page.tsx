@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Building2, FileText, Map, MessageSquare, UserRound } from "lucide-react";
+import { Building2, FileText, Map, MessageSquare, UserRound, UsersRound } from "lucide-react";
 import { properties } from "@/lib/data";
 import { allLocations } from "@/lib/data";
 
@@ -8,6 +8,7 @@ const cards = [
   { title: "Lead Management", href: "/admin/leads", icon: MessageSquare, copy: "View, search, and export general, unlock, and visit leads." },
   { title: "Location Management", href: "/admin/locations", icon: Map, copy: "Add and edit Mumbai and Navi Mumbai micro-markets." },
   { title: "Content Management", href: "/admin/content", icon: FileText, copy: "Homepage, testimonials, FAQ, and consultant profile controls." },
+  { title: "Website Accounts", href: "/admin/users", icon: UsersRound, copy: "Review customer registrations and successful login activity." },
 ];
 
 export default function AdminPage() {

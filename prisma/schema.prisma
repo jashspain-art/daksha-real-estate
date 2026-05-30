@@ -129,3 +129,20 @@ model ConsultantProfile {
   phone       String
   updatedAt   DateTime @updatedAt
 }
+
+model WebsiteUser {
+  id           String       @id @default(cuid())
+  name         String
+  email        String       @unique
+  phone        String
+  passwordHash String
+  createdAt    DateTime     @default(now())
+  logins       LoginEvent[]
+}
+
+model LoginEvent {
+  id        String      @id @default(cuid())
+  userId    String
+  user      WebsiteUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime    @default(now())
+}

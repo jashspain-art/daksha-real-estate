@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, Phone } from "lucide-react";
+import { LogIn, Menu, Phone, UserPlus } from "lucide-react";
 import { business } from "@/lib/constants";
 import { buttonVariants } from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/language-switcher";
@@ -29,6 +29,14 @@ export function SiteHeader() {
         </nav>
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
+          <Link href="/login" className={buttonVariants({ variant: "ghost", size: "sm", className: "hidden md:inline-flex" })}>
+            <LogIn className="h-4 w-4" />
+            Sign in
+          </Link>
+          <Link href="/signup" className={buttonVariants({ variant: "outline", size: "sm", className: "hidden md:inline-flex" })}>
+            <UserPlus className="h-4 w-4" />
+            Sign up
+          </Link>
           <a href={`tel:${business.phone.replace(/\s/g, "")}`} className={buttonVariants({ variant: "outline", size: "sm", className: "hidden sm:inline-flex" })}>
             <Phone className="h-4 w-4" />
             Call

@@ -24,7 +24,8 @@ export function SiteFooter() {
             <Link href="/contact">Contact</Link>
             <Link href="/privacy-policy">Privacy Policy</Link>
             <Link href="/terms">Terms</Link>
-            <Link href="/admin">Admin</Link>
+            <Link href="/login">Sign in</Link>
+            <Link href="/signup">Sign up</Link>
           </div>
         </div>
       </div>

@@ -79,6 +79,7 @@ async function main() {
 
   await prisma.consultantProfile.create({
     data: {
+      id: "consultant-profile",
       name: business.founder,
       bio: "Founder-led property advisory for verified residential sales and rentals across Mumbai and Navi Mumbai.",
       experience: "Residential sale and rental advisory",

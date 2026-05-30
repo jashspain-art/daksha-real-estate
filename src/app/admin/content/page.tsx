@@ -1,7 +1,9 @@
 import { faqs, testimonials } from "@/lib/data";
-import { business } from "@/lib/constants";
+import { ConsultantAdminForm } from "@/components/consultant-admin-form";
+import { getConsultantProfile } from "@/lib/consultant";
 
-export default function AdminContentPage() {
+export default async function AdminContentPage() {
+  const profile = await getConsultantProfile();
   return (
     <section className="bg-[#F8FAFC] py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -9,8 +11,8 @@ export default function AdminContentPage() {
         <div className="mt-6 grid gap-5 lg:grid-cols-2">
           <div className="rounded-lg border border-slate-200 bg-white p-6">
             <h2 className="text-xl font-semibold">Consultant Profile</h2>
-            <p className="mt-2 text-sm text-slate-600">{business.founder}</p>
-            <div className="mt-4 rounded-md bg-[#F8FAFC] p-4 text-sm text-slate-600">Upload and replace profile image through Supabase Storage using the consultantProfile.imageUrl field.</div>
+            <p className="mt-2 text-sm text-slate-600">Update the public portrait, bio, experience, areas served, and contact buttons.</p>
+            <div className="mt-5"><ConsultantAdminForm profile={profile} /></div>
           </div>
           <div className="rounded-lg border border-slate-200 bg-white p-6">
             <h2 className="text-xl font-semibold">Testimonials</h2>

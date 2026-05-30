@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Award, CheckCircle2, MapPin, Phone, ShieldCheck } from "lucide-react";
-import { business } from "@/lib/constants";
+import { getConsultantProfile } from "@/lib/consultant";
 import { allLocations, faqs, properties, testimonials } from "@/lib/data";
 import { buttonVariants } from "@/components/ui/button";
 import { PropertyCard } from "@/components/property-card";
@@ -73,25 +73,26 @@ export function WhyChoose() {
   );
 }
 
-export function ConsultantSection() {
+export async function ConsultantSection() {
+  const profile = await getConsultantProfile();
   return (
     <section className="bg-[#0B2A6F] py-16 text-white sm:py-20">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
         <div className="relative min-h-[420px] overflow-hidden rounded-lg bg-white/10">
-          <Image src="/founder-placeholder.svg" alt="Naveen B. Thakkar" fill className="object-cover" />
+          <Image src={profile.imageUrl ?? "/founder-placeholder.svg"} alt={profile.name} fill unoptimized className="object-cover" />
         </div>
         <div className="flex flex-col justify-center">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#E67A00]">Meet Your Consultant</p>
-          <h2 className="mt-3 text-4xl font-semibold tracking-tight">{business.founder}</h2>
-          <p className="mt-5 text-lg leading-8 text-white/80">Founder of Daksha Real Estate, focused on verified property advisory, practical negotiation, and guided visits across Mumbai and Navi Mumbai.</p>
+          <h2 className="mt-3 text-4xl font-semibold tracking-tight">{profile.name}</h2>
+          <p className="mt-5 text-lg leading-8 text-white/80">{profile.bio}</p>
           <div className="mt-6 grid gap-3 text-sm text-white/80 sm:grid-cols-3">
-            <div><strong className="block text-white">Experience</strong>Residential sales and rentals</div>
-            <div><strong className="block text-white">Areas Served</strong>Mumbai and Navi Mumbai</div>
+            <div><strong className="block text-white">Experience</strong>{profile.experience}</div>
+            <div><strong className="block text-white">Areas Served</strong>{profile.areasServed}</div>
             <div><strong className="block text-white">Approach</strong>Verified, private, visit-ready</div>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a className={buttonVariants({ variant: "accent" })} href={`https://wa.me/${business.whatsapp}`} target="_blank" rel="noreferrer">WhatsApp</a>
-            <a className={buttonVariants({ variant: "outline", className: "border-white/25 bg-white/10 text-white hover:bg-white/15" })} href={`tel:${business.phone.replace(/\s/g, "")}`}>
+            <a className={buttonVariants({ variant: "accent" })} href={`https://wa.me/${profile.whatsapp}`} target="_blank" rel="noreferrer">WhatsApp</a>
+            <a className={buttonVariants({ variant: "outline", className: "border-white/25 bg-white/10 text-white hover:bg-white/15" })} href={`tel:${profile.phone.replace(/\s/g, "")}`}>
               <Phone className="h-4 w-4" />
               Call
             </a>

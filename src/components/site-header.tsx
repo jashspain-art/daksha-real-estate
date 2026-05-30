@@ -16,9 +16,9 @@ const nav = [
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-slate-100 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
-          <Image src="/daksha-logo.svg" alt="Daksha Real Estate logo" width={148} height={44} priority />
+          <Image src="/daksha-logo.png" alt="Daksha Real Estate logo" width={116} height={81} className="h-[76px] w-auto object-contain" priority />
         </Link>
         <nav className="hidden items-center gap-7 text-sm font-medium text-slate-700 lg:flex">
           {nav.map(([label, href]) => (

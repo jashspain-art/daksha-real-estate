@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <section className="relative overflow-hidden bg-[#F8FAFC]">
         <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(11,42,111,0.10),rgba(230,122,0,0.05),transparent)]" />
-        <div className="relative mx-auto grid min-h-[calc(100vh-80px)] max-w-7xl content-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
+        <div className="relative mx-auto grid min-h-[calc(100vh-96px)] max-w-7xl content-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
           <div className="flex flex-col justify-center">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#E67A00]">Mumbai and Navi Mumbai</p>
             <h1 className="mt-4 max-w-4xl text-5xl font-semibold tracking-tight text-[#0B2A6F] sm:text-6xl lg:text-7xl">Find Your Next Home With Confidence</h1>

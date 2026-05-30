@@ -55,7 +55,7 @@ export function SiteHeader() {
               <ChevronDown className="h-4 w-4" />
             </button>
 
-            <div className="absolute right-0 mt-2 hidden min-w-[190px] rounded-lg border border-slate-200 bg-white shadow-lg group-hover:block">
+            <<div className="absolute right-0 top-full min-w-[190px] rounded-lg border border-slate-200 bg-white shadow-lg opacity-0 invisible transition-all duration-150 group-hover:visible group-hover:opacity-100">
               <Link
                 href="/login"
                 className="block px-4 py-3 text-sm hover:bg-slate-50"
